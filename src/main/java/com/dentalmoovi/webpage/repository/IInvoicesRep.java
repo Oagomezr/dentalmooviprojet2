@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.dentalmoovi.webpage.models.Invoices;
 
-public interface IInvoices extends JpaRepository<Invoices,Long>{
+public interface IInvoicesRep extends JpaRepository<Invoices,Long>{
     
 }
