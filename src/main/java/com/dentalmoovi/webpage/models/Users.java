@@ -28,7 +28,7 @@ public class Users {
     @Column(nullable = false, length = 25)
     private String firstName;
 
-    @Column(nullable = true, length = 25)
+    @Column(nullable = false, length = 25)
     private String lastName;
 
     @Column(nullable = false, unique = true, length = 60)
