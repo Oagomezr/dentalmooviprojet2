@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "actions")
+@Table(name = "permissions")
 public class Permissions {
     
     @Id
@@ -26,6 +26,6 @@ public class Permissions {
     @ManyToOne
     private Sections idSection;
 
-    @ManyToMany(mappedBy = "actions")
+    @ManyToMany(mappedBy = "permissions")
     private Set<Roles> roles = new HashSet<>();
 }

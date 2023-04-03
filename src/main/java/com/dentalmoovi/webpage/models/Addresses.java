@@ -17,6 +17,16 @@ import lombok.Data;
 @Table(name = "addresses")
 public class Addresses {
 
+    public Addresses(String country, String departament, String location, String neighborhood, String address,
+            String phoneContact) {
+        this.country = country;
+        this.departament = departament;
+        this.location = location;
+        this.neighborhood = neighborhood;
+        this.address = address;
+        this.phoneContact = phoneContact;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAddress;
@@ -31,7 +41,7 @@ public class Addresses {
     private String neighborhood;
     @Column(nullable = false, length = 30)
     private String address;
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false, length = 15)
     private String phoneContact;
 
     @ManyToMany(mappedBy = "addresses")

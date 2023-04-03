@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ActionsDTO {
+public class PermissionsDTO {
     private Long idAction;
     private String action;
 }

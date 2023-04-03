@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
 import lombok.Data;
@@ -20,6 +21,15 @@ import lombok.Data;
 @Entity
 @Table(name = "users")
 public class Users {
+
+    public Users(String firstName, String lastName, String email, String celPhone, LocalDate birthday, String gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.celPhone = celPhone;
+        this.birthday = birthday;
+        this.gender = gender;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +45,7 @@ public class Users {
     private String email;
 
     @Column(nullable = false, unique = true, length = 10)
-    private Integer celPhone;
+    private String celPhone;
 
     @Column(nullable = true)
     private LocalDate birthday;
@@ -45,6 +55,10 @@ public class Users {
 
     @Column(nullable = false, length = 30)
     private String password;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Roles idRole;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable( name = "user_addresses",

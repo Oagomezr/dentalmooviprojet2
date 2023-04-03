@@ -13,21 +13,24 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
+@RequiredArgsConstructor
 @Table(name = "roles")
 public class Roles {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRole;
-
+    @NonNull
     private String nameRole;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable( name = "roles_actions",
+    @JoinTable( name = "roles_permissions",
                 joinColumns = { @JoinColumn(name = "id_role") },
-                inverseJoinColumns = { @JoinColumn(name = "id_action") })
-    private Set<Actions> actions = new HashSet<>();
+                inverseJoinColumns = { @JoinColumn(name = "id_permission") })
+    private Set<Permissions> permissions = new HashSet<>();
 }

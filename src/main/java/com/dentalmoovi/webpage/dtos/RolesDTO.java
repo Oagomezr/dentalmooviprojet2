@@ -11,5 +11,5 @@ import lombok.Data;
 public class RolesDTO {
     private Long idRole;
     private String nameRole;
-    private Set<ActionsDTO> actions = new HashSet<>();
+    private Set<PermissionsDTO> actions = new HashSet<>();
 }
